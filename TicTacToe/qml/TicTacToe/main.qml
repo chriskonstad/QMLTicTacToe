@@ -348,8 +348,8 @@ Rectangle {
 
     Rectangle {
         id: winnerBox
-        x: 140
-        y: 200
+        x: page.width/2
+        y: page.height/2
         width: 200
         height: 200
         color: "#ffffff"
@@ -373,10 +373,10 @@ Rectangle {
 
             PropertyChanges {
                 target: winnerBox
-                x: 195
-                y: 282
+                x: page.width/2 - 105
+                y: page.height/2 - 19
                 width: 210
-                height: 37
+                height: 38
                 color: "#343434"
                 border.width: 5
                 visible: true
@@ -399,10 +399,10 @@ Rectangle {
 
             PropertyChanges {
                 target: winnerBox
-                x: 195
-                y: 282
+                x: page.width/2 - 105
+                y: page.height/2 - 19
                 width: 210
-                height: 37
+                height: 38
                 color: "#343434"
                 radius: 5
                 border.width: 5
