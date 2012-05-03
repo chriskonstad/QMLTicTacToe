@@ -9,6 +9,18 @@ Rectangle {
     property bool player
     player: false
 
+    Connections
+    {
+        target: logic;
+        onPlayerWon:
+        {
+            if(winner == "#ff0000")
+                page.state = "winnerRed"
+            else if(winner == "#0000ff")
+                page.state = "winnerBlue"
+        }
+    }
+
     Rectangle {
         id: upL
         x: 0
@@ -35,6 +47,7 @@ Rectangle {
                         upL.color = "blue"
                 }
                 upL.open = false
+                logic.squareChosen(0, upL.color)
             }
         }
     }
@@ -65,6 +78,7 @@ Rectangle {
                         upM.color = "blue"
                 }
                 upM.open = false
+                logic.squareChosen(1, upM.color)
             }
         }
     }
@@ -95,6 +109,7 @@ Rectangle {
                         upR.color = "blue"
                 }
                 upR.open = false
+                logic.squareChosen(2, upR.color)
             }
         }
     }
@@ -125,6 +140,7 @@ Rectangle {
                         midL.color = "blue"
                 }
                 midL.open = false
+                logic.squareChosen(3, midL.color)
             }
         }
     }
@@ -155,6 +171,7 @@ Rectangle {
                         midR.color = "blue"
                 }
                 midR.open = false
+                logic.squareChosen(5, midR.color)
             }
         }
     }
@@ -185,6 +202,7 @@ Rectangle {
                         midM.color = "blue"
                 }
                 midM.open = false
+                logic.squareChosen(4, midM.color)
             }
         }
     }
@@ -215,6 +233,7 @@ Rectangle {
                         lowL.color = "blue"
                 }
                 lowL.open = false
+                logic.squareChosen(6, lowL.color)
             }
         }
     }
@@ -245,6 +264,7 @@ Rectangle {
                         lowR.color = "blue"
                 }
                 lowR.open = false
+                logic.squareChosen(8, lowR.color)
             }
         }
     }
@@ -275,6 +295,7 @@ Rectangle {
                         lowM.color = "blue"
                 }
                 lowM.open = false
+                logic.squareChosen(7, lowM.color)
             }
         }
     }
@@ -318,7 +339,88 @@ Rectangle {
                 lowL.open = true
                 lowM.open = true
                 lowR.open = true
+
+                logic.resetSquares()
+                page.state = ""
             }
         }
     }
+
+    Rectangle {
+        id: winnerBox
+        x: 140
+        y: 200
+        width: 200
+        height: 200
+        color: "#ffffff"
+        radius: 5
+        visible: false
+        border.color: "#808080"
+        z: 1
+        opacity: 0
+
+        Text {
+            id: winnerText
+            text: qsTr("")
+            anchors.fill: parent
+            font.pixelSize: 12
+            opacity: 0
+        }
+    }
+    states: [
+        State {
+            name: "winnerBlue"
+
+            PropertyChanges {
+                target: winnerBox
+                x: 195
+                y: 282
+                width: 210
+                height: 37
+                color: "#343434"
+                border.width: 5
+                visible: true
+                opacity: 1
+            }
+
+            PropertyChanges {
+                target: winnerText
+                width: 132
+                height: 102
+                opacity: 1
+                color: "blue"
+                text: qsTr("Blue has won!")
+                horizontalAlignment: "AlignHCenter"
+                font.pixelSize: 30
+            }
+        },
+        State {
+            name: "winnerRed"
+
+            PropertyChanges {
+                target: winnerBox
+                x: 195
+                y: 282
+                width: 210
+                height: 37
+                color: "#343434"
+                radius: 5
+                border.width: 5
+                visible: true
+                clip: false
+                opacity: 1
+            }
+
+            PropertyChanges {
+                target: winnerText
+                width: 132
+                height: 102
+                opacity: 125
+                color: "red"
+                text: qsTr("Red has won!")
+                horizontalAlignment: "AlignHCenter"
+                font.pixelSize: 30
+            }
+        }
+    ]
 }

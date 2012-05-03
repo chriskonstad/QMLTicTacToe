@@ -30,7 +30,8 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # CONFIG += qt-components
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    logic.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -81,4 +82,7 @@ OTHER_FILES += \
     android/src/org/kde/necessitas/origo/QtActivity.java \
     android/src/org/kde/necessitas/origo/QtApplication.java \
     android/version.xml
+
+HEADERS += \
+    logic.h
 
