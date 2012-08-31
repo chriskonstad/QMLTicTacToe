@@ -369,6 +369,35 @@ Rectangle {
             verticalAlignment: Text.AlignBottom
             horizontalAlignment: "AlignHCenter"
         }
+        MouseArea {
+            id: maResetAfterWin
+            anchors.fill: parent
+            onClicked:
+            {
+                upL.color = "#00000000"
+                upM.color = "#00000000"
+                upR.color = "#00000000"
+                midL.color = "#00000000"
+                midM.color = "#00000000"
+                midR.color = "#00000000"
+                lowL.color = "#00000000"
+                lowM.color = "#00000000"
+                lowR.color = "#00000000"
+
+                upL.open = true
+                upM.open = true
+                upR.open = true
+                midL.open = true
+                midM.open = true
+                midR.open = true
+                lowL.open = true
+                lowM.open = true
+                lowR.open = true
+
+                Logic.resetSquares()
+                page.state = ""
+            }
+        }
     }
     states: [
         State {
