@@ -9,10 +9,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QmlApplicationViewer viewer;
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
-    //viewer.setMainQmlFile(QLatin1String("qml/TicTacToe/main.qml"));
-    viewer.rootContext()->setContextProperty("logic", new Logic);
+    Logic logic;
+    viewer.rootContext()->setContextProperty("Logic", &logic);
+    #if Q_OS_IOS
+    viewer.setMainQmlFile(QApplication::applicationDirPath() + "/main.qml");
+    #else
     viewer.setSource(QUrl("qrc:/res/qml/TicTacToe/main.qml"));
-
+    #endif
     viewer.showExpanded();
 
     return app->exec();

@@ -29,6 +29,12 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # Add dependency to Symbian components
 # CONFIG += qt-components
 
+Qt += core
+TARGET = TicTacToe
+TEMPLATE = app
+
+ios:include($$[QMAKE_MKSPECS]/common/ios/qiosapp.conf)
+
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     logic.cpp
@@ -85,4 +91,3 @@ OTHER_FILES += \
 
 HEADERS += \
     logic.h
-

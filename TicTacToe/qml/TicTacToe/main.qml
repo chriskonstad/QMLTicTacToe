@@ -11,7 +11,7 @@ Rectangle {
 
     Connections
     {
-        target: logic;
+        target: Logic;
         onPlayerWon:
         {
             if(winner == "#ff0000")
@@ -25,7 +25,7 @@ Rectangle {
         id: upL
         x: 0
         y: 0
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -47,16 +47,16 @@ Rectangle {
                         upL.color = "blue"
                 }
                 upL.open = false
-                logic.squareChosen(0, upL.color)
+                Logic.squareChosen(0, upL.color)
             }
         }
     }
 
     Rectangle {
         id: upM
-        x: (parent.width / 3) - 35
+        x: (parent.width / 3) - 15
         y: 0
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -78,16 +78,16 @@ Rectangle {
                         upM.color = "blue"
                 }
                 upM.open = false
-                logic.squareChosen(1, upM.color)
+                Logic.squareChosen(1, upM.color)
             }
         }
     }
 
     Rectangle {
         id: upR
-        x: (2 * parent.width / 3) - 70
+        x: (2 * parent.width / 3) - 30
         y: 0
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -109,7 +109,7 @@ Rectangle {
                         upR.color = "blue"
                 }
                 upR.open = false
-                logic.squareChosen(2, upR.color)
+                Logic.squareChosen(2, upR.color)
             }
         }
     }
@@ -118,7 +118,7 @@ Rectangle {
         id: midL
         x: 0
         y: ( parent.height / 3) + 5
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -140,16 +140,16 @@ Rectangle {
                         midL.color = "blue"
                 }
                 midL.open = false
-                logic.squareChosen(3, midL.color)
+                Logic.squareChosen(3, midL.color)
             }
         }
     }
 
     Rectangle {
         id: midR
-        x: (2 * parent.width / 3) - 70
+        x: (2 * parent.width / 3) - 30
         y: ( parent.height / 3) + 5
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -171,16 +171,16 @@ Rectangle {
                         midR.color = "blue"
                 }
                 midR.open = false
-                logic.squareChosen(5, midR.color)
+                Logic.squareChosen(5, midR.color)
             }
         }
     }
 
     Rectangle {
         id: midM
-        x: (parent.width / 3) - 35
+        x: (parent.width / 3) - 15
         y: ( parent.height / 3) + 5
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -202,7 +202,7 @@ Rectangle {
                         midM.color = "blue"
                 }
                 midM.open = false
-                logic.squareChosen(4, midM.color)
+                Logic.squareChosen(4, midM.color)
             }
         }
     }
@@ -211,7 +211,7 @@ Rectangle {
         id: lowL
         x: 0
         y: (2 * parent.height / 3) + 10
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -233,16 +233,16 @@ Rectangle {
                         lowL.color = "blue"
                 }
                 lowL.open = false
-                logic.squareChosen(6, lowL.color)
+                Logic.squareChosen(6, lowL.color)
             }
         }
     }
 
     Rectangle {
         id: lowR
-        x: (2 * parent.width / 3) - 70
+        x: (2 * parent.width / 3) - 30
         y: (2 * parent.height / 3) + 10
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -264,16 +264,16 @@ Rectangle {
                         lowR.color = "blue"
                 }
                 lowR.open = false
-                logic.squareChosen(8, lowR.color)
+                Logic.squareChosen(8, lowR.color)
             }
         }
     }
 
     Rectangle {
         id: lowM
-        x: (parent.width / 3) - 35
+        x: (parent.width / 3) - 15
         y: (2 * parent.height / 3) + 10
-        width: ( parent.width / 3 ) - 50
+        width: ( parent.width / 3 ) - 30
         height: ( parent.height / 3 ) - 10
         color: "#00000000"
         radius: 5
@@ -295,7 +295,7 @@ Rectangle {
                         lowM.color = "blue"
                 }
                 lowM.open = false
-                logic.squareChosen(7, lowM.color)
+                Logic.squareChosen(7, lowM.color)
             }
         }
     }
@@ -303,7 +303,7 @@ Rectangle {
     Rectangle {
         id: butReset
         x: 488
-        width: 105
+        width: 45
         color: "#00000000"
         radius: 5
         anchors.top: parent.top
@@ -340,7 +340,7 @@ Rectangle {
                 lowM.open = true
                 lowR.open = true
 
-                logic.resetSquares()
+                Logic.resetSquares()
                 page.state = ""
             }
         }
@@ -348,14 +348,15 @@ Rectangle {
 
     Rectangle {
         id: winnerBox
-        x: page.width/2
-        y: page.height/2
-        width: 200
-        height: 200
+        width: winnerBox.height * 8
+        height: page.height / 10
+        x: (page.width / 2) - (winnerBox.width / 2)
+        y: (page.height / 2) - (winnerBox.height / 2)
         color: "#ffffff"
         radius: 5
         visible: false
         border.color: "#808080"
+        border.width: 5
         z: 1
         opacity: 0
 
@@ -363,8 +364,10 @@ Rectangle {
             id: winnerText
             text: qsTr("")
             anchors.fill: parent
-            font.pixelSize: 12
-            opacity: 0
+            anchors.centerIn: parent
+            font.pixelSize: parent.width / 10
+            verticalAlignment: Text.AlignBottom
+            horizontalAlignment: "AlignHCenter"
         }
     }
     states: [
@@ -373,25 +376,17 @@ Rectangle {
 
             PropertyChanges {
                 target: winnerBox
-                x: page.width/2 - 105
-                y: page.height/2 - 19
-                width: 210
-                height: 38
                 color: "#343434"
-                border.width: 5
+                z: 2
                 visible: true
                 opacity: 1
             }
 
             PropertyChanges {
                 target: winnerText
-                width: 132
-                height: 102
                 opacity: 1
                 color: "blue"
                 text: qsTr("Blue has won!")
-                horizontalAlignment: "AlignHCenter"
-                font.pixelSize: 30
             }
         },
         State {
@@ -399,27 +394,16 @@ Rectangle {
 
             PropertyChanges {
                 target: winnerBox
-                x: page.width/2 - 105
-                y: page.height/2 - 19
-                width: 210
-                height: 38
                 color: "#343434"
-                radius: 5
-                border.width: 5
+                z: 2
                 visible: true
-                clip: false
                 opacity: 1
             }
 
             PropertyChanges {
                 target: winnerText
-                width: 132
-                height: 102
-                opacity: 125
                 color: "red"
                 text: qsTr("Red has won!")
-                horizontalAlignment: "AlignHCenter"
-                font.pixelSize: 30
             }
         }
     ]
